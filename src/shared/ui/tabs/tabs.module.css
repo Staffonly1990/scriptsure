@@ -1,0 +1,11 @@
+.root {
+  @apply flex;
+}
+
+.horizontal {
+  @apply flex-col;
+}
+
+.vertical {
+  @apply flex-row;
+}

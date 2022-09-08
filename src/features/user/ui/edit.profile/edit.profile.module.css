@@ -1,0 +1,3 @@
+.modal {
+  @apply !h-screen !max-h-screen !max-w-none !m-0;
+}

@@ -1,0 +1,42 @@
+.root {
+  @apply flex flex-1 flex-row items-center my-4;
+  @apply first:justify-start first:before:hidden first:after:relative first:after:block first:after:bg-gray-300 first:after:container first:after:h-0.5 first:after:container;
+  @apply last:justify-end last:after:hidden;
+  @apply before:relative before:block before:bg-gray-300 before:container before:h-0.5 before:container;
+  @apply after:relative after:block after:bg-gray-300 after:container after:h-0.5 after:container;
+}
+
+.root > button {
+  @apply focus-visible:outline-access-offset-1;
+}
+
+.colBox {
+  @apply flex flex-col items-center cursor-pointer mx-4;
+}
+
+.rowBox {
+  @apply flex flex-row items-center cursor-pointer mx-4;
+}
+
+.round {
+  @apply flex justify-center items-center bg-gray-300 cursor-pointer;
+  @apply p-4 border-2 rounded-full w-2 h-2 mr-0.5;
+}
+
+.errorImage {
+  @apply fill-current text-red-600 w-10;
+}
+
+.errorImageCustom {
+  @apply fill-current text-red-600 w-20;
+}
+
+@each $color in black, white, gray, red, yellow, green, blue, indigo, purple, pink {
+  .activeButton-$(color) {
+    @if $color == black OR $color == white {
+      @apply bg-$(color) bg-opacity-75;
+    } @else {
+      @apply bg-$(color)-500;
+    }
+  }
+}

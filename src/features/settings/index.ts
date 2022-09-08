@@ -1,0 +1,1 @@
+export { settingsModel } from './model';

@@ -1,0 +1,71 @@
+.root {
+  @apply invisible fixed z-offcanvas bottom-0 flex flex-col max-w-full;
+  @apply bg-white shadow focus-visible:outline-none;
+  @apply transition-transform transform-gpu ease-in-out duration-300;
+
+  &.entering {
+    @apply visible;
+  }
+
+  &.entered {
+    @apply visible;
+  }
+
+  &.exiting {
+    @apply visible;
+  }
+
+  &.exited {
+    @apply invisible;
+  }
+
+  &.right,
+  &.left {
+    @apply top-0 min-w-[1rem] max-w-full;
+  }
+
+  &.right {
+    @apply right-0 translate-x-full;
+
+    &.entering {
+      @apply translate-x-full;
+    }
+  }
+
+  &.left {
+    @apply left-0 -translate-x-full;
+
+    &.entering {
+      @apply -translate-x-full;
+    }
+  }
+
+  &.bottom,
+  &.top {
+    @apply left-0 right-0 min-h-[1rem] max-h-full;
+  }
+
+  &.bottom {
+    @apply translate-y-full;
+
+    &.entering {
+      @apply translate-y-full;
+    }
+  }
+
+  &.top {
+    @apply top-0 bottom-auto -translate-y-full;
+
+    &.entering {
+      @apply -translate-y-full;
+    }
+  }
+
+  &.open {
+    @apply visible transform-none;
+  }
+}
+
+.backdrop {
+  @apply fixed z-offcanvasBackdrop inset-0 bg-gray-500 bg-opacity-50;
+}

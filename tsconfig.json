@@ -1,0 +1,58 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "es5",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2015.Iterable",
+      "ES2018.AsyncIterable",
+      "ES2015",
+      "ES2016",
+      "ES2017",
+      "ES2018",
+      "ES2019",
+      "ES2020",
+      "ES2021",
+      "ES6",
+      "ES7",
+      "ESNext"
+    ],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "postCssOptions": { "useConfig": true }
+        }
+      }
+    ],
+    "allowJs": true,
+    "checkJs": false,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": false,
+    "downlevelIteration": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx", "src/**/*.module.css"],
+  "exclude": ["node_modules", "build"],
+  "typeAcquisition": {
+    "enable": true
+  }
+}

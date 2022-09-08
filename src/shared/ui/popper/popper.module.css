@@ -1,0 +1,8 @@
+.root {
+  @apply z-popover flex flex-col rounded-sm text-sm;
+  @apply bg-secondary shadow ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none;
+
+  &[data-popper-interactive="false"] {
+    @apply pointer-events-none;
+  }
+}

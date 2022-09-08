@@ -1,0 +1,18 @@
+.required::after {
+  content: "*";
+  @apply ml-1;
+}
+.required.invalid::after {
+  @apply text-red-500;
+}
+
+.label:first-letter {
+  @apply uppercase;
+}
+
+.error {
+  @apply text-red-500;
+}
+.error:first-letter {
+  @apply uppercase;
+}

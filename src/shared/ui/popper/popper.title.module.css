@@ -1,0 +1,4 @@
+.root {
+  @apply flex items-center justify-between px-2 py-1 sm:px-4;
+  @apply font-medium;
+}

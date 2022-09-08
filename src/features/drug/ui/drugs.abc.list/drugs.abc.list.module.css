@@ -1,0 +1,8 @@
+.grid {
+    display: grid;
+    justify-content: start;
+    grid-template-rows: repeat(12, minmax(0, 1fr));
+    gap: 5px;
+    grid-auto-flow: column;
+    width: max-content;
+}

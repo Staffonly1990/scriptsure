@@ -1,0 +1,12 @@
+.root {
+  @apply px-3 py-3 sm:px-4 sm:py-2.5 sm:flex sm:flex-row-reverse;
+  @apply border-t border-t-gray-200;
+}
+
+.btn-ok {
+  @apply w-full sm:ml-3 sm:w-auto;
+}
+
+.btn-cancel {
+  @apply mt-3 w-full sm:mt-0 sm:ml-3 sm:w-auto;
+}

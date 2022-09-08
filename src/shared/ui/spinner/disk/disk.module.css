@@ -1,0 +1,26 @@
+.root {
+  @apply border-t-2 border-b-2 rounded-full;
+
+  /* if not jit using :global otherwise :local */
+  & :local {
+    @apply animate-spin;
+  }
+}
+
+@each $color in black, white, gray, red, yellow, green, blue, indigo, purple, pink {
+  .$(color) {
+    @if $color == black {
+      @apply border-$(color);
+      @nest :global(:root.dark) & {
+        @apply border-gray-400;
+      }
+    } @else if $color == white {
+      @apply border-$(color);
+    } @else {
+      @apply border-$(color)-800;
+      @nest :global(:root.dark) & {
+        @apply border-$(color)-300;
+      }
+    }
+  }
+}

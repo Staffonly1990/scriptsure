@@ -1,0 +1,47 @@
+/** This file represents the style variants of the alert component */
+.root {
+  @apply relative flex p-4;
+}
+
+.smooth {
+  @apply rounded-sm;
+}
+
+.round {
+  @apply rounded-md;
+}
+
+@each $color in black, white, gray, red, yellow, green, blue, indigo, purple, pink {
+  .$(color) {
+    @if $color == white {
+      @apply bg-secondary text-primary;
+    } @else if $color == black {
+      @apply bg-black text-white;
+      @nest :global(:root.dark) & {
+        @apply bg-white text-black;
+      }
+    } @else {
+      @apply bg-$(color)-50 text-$(color)-400 text-sm;
+      /* instead `dark:` use `@nest :global(:root.dark)` */
+      @nest :global(:root.dark) & {
+        @apply bg-$(color)-100 text-$(color)-600;
+      }
+      & h1,
+      & h2,
+      & h3,
+      & h4,
+      & h5 {
+        @apply text-$(color)-800 font-medium;
+      }
+      & p,
+      & ui,
+      & li,
+      & a {
+        @apply text-$(color)-700;
+      }
+      &.border {
+        @apply border-l-4 border-$(color)-400;
+      }
+    }
+  }
+}

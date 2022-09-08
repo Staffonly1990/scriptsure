@@ -1,0 +1,187 @@
+.nice-dates-navigation {
+  @apply relative flex items-center justify-between;
+  @apply text-primary text-center capitalize;
+}
+.nice-dates-navigation_current {
+  @apply flex-grow text-base;
+}
+.nice-dates-navigation_previous,
+.nice-dates-navigation_next {
+  @apply relative h-0;
+  cursor: pointer;
+  padding-bottom: calc(100% / 9);
+  width: calc(100% / 7);
+}
+.nice-dates-navigation_previous:before,
+.nice-dates-navigation_next:before {
+  @apply absolute top-1/2 left-1/2 w-3 h-3 -mt-1.5 -ml-1.5;
+  @apply block border-t-2 border-r-2 border-solid border-primary;
+  box-sizing: border-box;
+  content: "";
+  transform: rotate(45deg);
+  transition: 200ms border-color;
+}
+.nice-dates-navigation_previous:hover:before,
+.nice-dates-navigation_next:hover:before {
+  @apply border-blue-600;
+}
+.nice-dates-navigation_previous.-disabled,
+.nice-dates-navigation_next.-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+.nice-dates-navigation_previous.-disabled:before,
+.nice-dates-navigation_next.-disabled:before {
+  @apply border-opacity-25;
+}
+.nice-dates-navigation_previous:before {
+  transform: rotate(-135deg);
+}
+
+.nice-dates-week-header {
+  @apply flex px-0 py-2;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  @nest :root.dark & {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
+.nice-dates-week-header_day {
+  @apply text-primary text-opacity-75 text-sm text-center leading-4 capitalize;
+  width: calc(100% / 7);
+}
+
+.nice-dates-grid {
+  @apply relative;
+  box-sizing: content-box;
+  overflow: hidden;
+  user-select: none;
+}
+.nice-dates-grid_container {
+  @apply absolute inset-x-0 flex flex-wrap;
+  backface-visibility: hidden;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: none;
+  will-change: transform;
+}
+.nice-dates-grid_container.-moving .nice-dates-day_date {
+  transition: 300ms color;
+}
+.nice-dates-grid_container.-origin-bottom {
+  @apply top-auto bottom-0;
+}
+.nice-dates-grid_container.-origin-top {
+  @apply top-0 bottom-auto;
+}
+.nice-dates-grid_container.-transition {
+  transition-property: transform;
+}
+
+.nice-dates-day {
+  @apply relative flex flex-col items-center justify-center;
+  @apply border-t border-t-solid border-t-transparent;
+  @apply text-primary text-sm text-center leading-4;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: calc(100% / 7);
+}
+.nice-dates-day_date {
+  @apply z-30;
+  transition: 150ms color;
+  will-change: color;
+}
+.nice-dates-day_month {
+  @apply absolute inset-x-0 top-0.5 z-30 text-primary text-opacity-75 text-xs capitalize;
+}
+.nice-dates-day:before,
+.nice-dates-day:after {
+  @apply absolute inset-0 block opacity-0;
+  border-radius: 999px;
+  box-sizing: border-box;
+  content: "";
+}
+.nice-dates-day:before {
+  @apply z-10 bg-blue-600;
+}
+.nice-dates-day:after {
+  @apply z-20 border-2 border-solid border-blue-600;
+  transform: scale(0.95);
+  transition-duration: 150ms;
+  transition-property: transform, opacity;
+}
+.nice-dates-day:not(.-disabled):hover:after {
+  opacity: 1;
+  transform: scale(1);
+}
+@media (hover: none) {
+  .nice-dates-day:after {
+    content: none;
+  }
+  .nice-dates-day.-selected * {
+    @apply text-white;
+  }
+}
+.nice-dates-day.-selected:before {
+  opacity: 1;
+}
+.nice-dates-day.-selected:hover:after {
+  @apply bg-white;
+}
+.nice-dates-day.-selected:not(:hover) *,
+.nice-dates-day.-selected.-disabled * {
+  @apply text-white;
+}
+.nice-dates-day.-selected.-selected-start:before {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  right: 0;
+}
+.nice-dates-day.-selected.-selected-end:before {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  left: 0;
+}
+.nice-dates-day.-selected.-selected-middle:before {
+  border-radius: 0;
+  left: 0;
+  right: 0;
+}
+.nice-dates-day.-selected.-selected-middle:nth-child(7n + 1):before {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.nice-dates-day.-selected.-selected-middle:not(.-end):nth-child(7n):before {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.nice-dates-day.-today {
+  @apply text-blue-600 font-bold;
+}
+.nice-dates-day.-wide:before,
+.nice-dates-day.-wide:after {
+  left: 12.5%;
+  right: 12.5%;
+}
+.nice-dates-day.-outside {
+  @apply text-primary text-opacity-50;
+}
+.nice-dates-day.-disabled {
+  @apply text-primary text-opacity-25;
+  cursor: default;
+  pointer-events: none;
+}
+
+.nice-dates-popover {
+  @apply w-full overflow-auto bg-secondary;
+  @apply max-w-xs md:max-w-sm;
+  /* transform-origin: top;
+  transform: perspective(1000px);
+  transition-property: transform, opacity;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0.2, 0, 1.1); */
+  will-change: transform, opacity;
+}
+/* .nice-dates-popover:not(.-open) {
+  opacity: 0;
+  pointer-events: none;
+  transform: perspective(1000px) rotateX(-15deg);
+} */

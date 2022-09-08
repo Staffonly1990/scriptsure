@@ -1,0 +1,16 @@
+.root {
+  @apply rotate-45 relative py-1 text-center uppercase font-bold text-xs;
+  @apply left-[-5px] top-[15px] w-[120px] h-[min-content];
+  @apply after:content-[''] after:absolute after:bottom-[-1px] after:border-[5px] after:border-b-0 after:border-transparent after:right-[4px] after:rotate-45;
+  @apply before:content-[''] before:absolute before:bottom-[-1px] before:border-[5px] before:border-b-0 before:border-transparent before:left-[4px] before:rotate-45;
+}
+
+@each $color in black, white, gray, red, yellow, green, blue, indigo, purple, pink {
+  .rectangle-$(color) {
+    @if $color == black OR $color == white {
+      @apply bg-opacity-75;
+    } @else {
+      @apply bg-$(color)-500 after:border-r-$(color)-700 before:border-r-$(color)-700;
+    }
+  }
+}

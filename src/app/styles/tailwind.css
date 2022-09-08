@@ -1,0 +1,70 @@
+@import "./tailwind.theme";
+
+/* it is correct to use "@import" instead of "@tailwind" for JIT mode */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "tailwindcss/variants";
+
+@import "./tailwind.form";
+@import "./tailwind.datagrid";
+
+@layer utilities {
+  .zoom-none {
+    zoom: normal;
+  }
+
+  .zoom-1 {
+    zoom: 1;
+  }
+
+  .zoom-full {
+    zoom: 100%;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply overflow-x-hidden m-0;
+  @apply text-secondary bg-primary;
+}
+
+@layer utilities {
+  .zoom-none {
+    zoom: normal;
+  }
+
+  .zoom-1 {
+    zoom: 1;
+  }
+
+  .zoom-full {
+    zoom: 100%;
+  }
+}
+
+.react-headless-notifier-fixed {
+  @apply z-snackbar;
+}
+
+.fx-fade-enter {
+  @apply opacity-0;
+}
+.fx-fade-enter-active {
+  @apply opacity-100;
+  @apply transition-opacity ease-out duration-300;
+}
+.fx-fade-exit {
+  @apply opacity-100;
+}
+.fx-fade-exit-active {
+  @apply opacity-0;
+  @apply transition-opacity ease-in duration-300;
+}
+
+.title {
+  @nest h5& {
+    @apply text-lg leading-6 font-medium;
+  }
+}

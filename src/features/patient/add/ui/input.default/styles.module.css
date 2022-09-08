@@ -1,0 +1,7 @@
+.required {
+  @apply after:content-['*'] after:pl-1 after:text-red-500;
+}
+
+.requiredText {
+  @apply text-red-500;
+}

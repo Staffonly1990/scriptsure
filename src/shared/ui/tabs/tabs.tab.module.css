@@ -1,0 +1,41 @@
+.root {
+  @apply py-4 px-1 font-medium text-sm whitespace-nowrap focus:outline-none focus-visible:outline-none;
+}
+
+.horizontal {
+  @apply border-b-2;
+}
+
+.vertical {
+  @apply border-r-2;
+}
+
+.inactive {
+  @apply border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-400 focus:bg-gray-200 focus:bg-opacity-25;
+  @nest :global(:root.dark) & {
+    @apply hover:text-gray-400 focus:bg-gray-100;
+  }
+}
+
+@each $color in black, white, gray, red, yellow, green, blue, indigo, purple, pink {
+  .active-$(color) {
+    @if $color == black OR $color == white {
+      @apply border-$(color) border-opacity-40 focus:bg-$(color) focus:bg-opacity-20;
+      @nest :global(:root.dark) & {
+        @apply text-gray-300 focus:bg-opacity-10;
+      }
+    } @else {
+      @apply border-$(color)-400 text-$(color)-500 focus:bg-$(color)-200 focus:bg-opacity-25;
+      @nest :global(:root.dark) & {
+        @apply border-$(color)-200 text-$(color)-300 focus:bg-$(color)-100;
+      }
+    }
+  }
+}
+
+.disabled {
+  @apply pointer-events-none cursor-default bg-opacity-60 text-opacity-60 ring-opacity-60 border-opacity-60;
+  @nest :global(:root.dark) & {
+    @apply bg-opacity-40;
+  }
+}

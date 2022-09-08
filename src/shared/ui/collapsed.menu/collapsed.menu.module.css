@@ -1,0 +1,82 @@
+.nav {
+  @apply block overflow-hidden min-h-full bg-primary;
+  white-space: nowrap;
+  max-width: 200px;
+  transition-property: min-width, max-width, width;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.title {
+  @apply flex items-center px-4 py-2 bg-primary;
+  @apply border-b border-solid border-gray-300;
+  line-height: 36px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.title_block {
+  @apply flex items-center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.title_svg {
+  @apply ml-0.5;
+  height: 20px;
+  width: 20px;
+}
+
+.li {
+  @apply flex items-center px-4 py-2;
+  font-size: 16px;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.li svg {
+  color: currentColor;
+}
+
+.li_svg {
+  @apply ml-0.5;
+  height: 24px;
+  width: 24px;
+}
+
+.li_svg svg {
+  height: 100%;
+}
+
+.li_svg:not(:last-child),
+.title_svg:not(:last-child) {
+  @apply mr-2;
+}
+
+.li_text,
+.title_text {
+  transition-property: visibility, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.nav.nav_collaps {
+  max-width: 60px;
+}
+
+.nav.nav_collaps .li_text,
+.nav.nav_collaps .title_text {
+  @apply invisible opacity-0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  background: none;
+  padding: 0;
+  list-style-type: none;
+}

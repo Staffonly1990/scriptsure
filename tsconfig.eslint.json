@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/**/*.module.css",
+    ".prettierrc.js",
+    ".eslintrc.js",
+    "craco.config.js",
+    "postcss.config.js",
+    "tailwind.config.js"
+  ]
+}

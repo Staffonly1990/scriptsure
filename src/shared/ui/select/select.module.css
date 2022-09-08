@@ -1,0 +1,88 @@
+.root {
+  @apply block text-sm font-normal;
+}
+
+.smooth {
+  @apply rounded-sm;
+}
+
+.round {
+  @apply rounded;
+}
+
+.left {
+  @apply left-0 pl-2;
+}
+
+.right {
+  @apply right-0 pr-2;
+}
+
+@each $color in black, white, gray, red, yellow, green, blue, indigo, purple, pink {
+  .$(color) {
+    @if $color == black {
+      @apply cursor-default focus:outline-none focus:ring-1 ring-opacity-5 focus:ring-$(color) focus:border-$(color);
+      & .active {
+        @apply bg-$(color) text-white font-semibold;
+      }
+      & .selected {
+        @apply text-$(color) font-semibold;
+      }
+      & .selected__text {
+        @apply font-semibold;
+      }
+    } @else if $color == white {
+      @apply cursor-default focus:outline-none focus:ring-1 ring-opacity-5 focus:ring-$(color) focus:border-$(color);
+      & .active {
+        @apply bg-$(color) opacity-50 text-black font-semibold;
+      }
+      & .selected {
+        @apply text-black font-semibold;
+      }
+      & .selected__text {
+        @apply font-semibold;
+      }
+    } @else {
+      @apply cursor-default focus:outline-none focus:ring-1 focus:ring-$(color)-500 focus:border-$(color)-500;
+      @nest :global(:root.dark) & {
+        @apply focus:ring-$(color)-400 focus:border-$(color)-400;
+      }
+      & .active {
+        @apply bg-$(color)-600 text-white;
+        @nest :global(:root.dark) & {
+          @apply bg-$(color)-400;
+        }
+      }
+      & .selected {
+        @apply text-$(color)-600 font-semibold;
+        @nest :global(:root.dark) & {
+          @apply text-$(color)-400;
+        }
+      }
+      & .selected__text {
+        @apply font-semibold;
+      }
+    }
+  }
+}
+
+.list_options {
+  @apply z-dropdown max-h-60 py-1 overflow-auto bg-primary shadow-lg text-base ring-1 ring-black ring-opacity-5 sm:text-sm;
+}
+
+.listbox_button {
+  @apply relative pl-2 pr-9 py-0.5 text-left text-sm leading-normal sm:text-base sm:leading-normal;
+  @apply bg-primary border border-gray-300 shadow-sm;
+}
+
+.listbox_option {
+  @apply cursor-default select-none relative py-2 pr-9;
+}
+
+.listbox_icon {
+  @apply flex items-center absolute inset-y-0;
+
+  &.__selector {
+    @apply text-gray-400 pr-1 pointer-events-none;
+  }
+}

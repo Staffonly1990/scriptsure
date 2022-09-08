@@ -1,0 +1,76 @@
+@layer components {
+  .sheet {
+    @apply overflow-hidden max-w-full;
+
+    &.__border {
+      @apply border-b border-b-gray-200 dark:border-b-gray-600 sm:rounded sm:shadow;
+    }
+  }
+
+  .sheet_container {
+    @apply overflow-x-auto overflow-y-hidden;
+  }
+
+  .sheet-title {
+    @apply bg-secondary text-xl px-4 py-3 sm:px-6;
+  }
+
+  .sheet-table {
+    @apply relative zoom-1;
+    @apply table-auto w-full;
+
+    @nest .sheet.__border & {
+      @apply divide-y divide-gray-200 dark:divide-gray-600;
+    }
+  }
+
+  .sheet-table_thead {
+    @apply bg-primary;
+  }
+
+  .sheet-table_row {
+    @apply bg-secondary even:bg-primary;
+  }
+
+  .sheet-table_header {
+    @apply px-6 py-3;
+
+    &.__name {
+      @apply whitespace-nowrap text-left text-xs font-medium uppercase tracking-wider;
+    }
+  }
+
+  .sheet-table_cell {
+    @apply px-6 py-4;
+
+    &.__text {
+      @apply text-sm;
+    }
+
+    &.__action {
+      @apply text-right text-sm font-medium;
+    }
+  }
+
+  .sheet-table_column {
+    /* @apply w-[1%]; */
+    @apply w-auto focus-visible:-outline-access-offset-1;
+
+    &.__sorted {
+      @apply font-bold;
+    }
+  }
+
+  .sheet-pagination {
+    @apply flex items-center justify-end space-x-4;
+    @apply px-4 py-3 sm:px-6;
+
+    @nest .sheet.__border & {
+      @apply border-t border-t-gray-200 dark:border-t-gray-600;
+    }
+
+    @nest & nav {
+      @apply flex items-center justify-end space-x-2;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.root {
+  color: transparent !important;
+  @apply pointer-events-none shadow-none focus:outline-none;
+  @apply relative inline-flex items-center justify-center;
+}
+
+.beyond {
+  @apply absolute top-1/2 left-1/2 transform-gpu -translate-x-2/4 -translate-y-2/4;
+}
+
+.block {
+  @apply flex;
+}
+
+.root .element {
+  @each $size in xs, sm, md, lg, xl {
+    &.element-size-$(size) {
+      @if $size == xs {
+        @apply w-3 h-3;
+      } @else if $size == sm {
+        @apply w-4 h-4;
+      } @else if $size == md {
+        @apply w-6 h-6;
+      } @else if $size == lg {
+        @apply w-8 h-8;
+      } @else if $size == xl {
+        @apply w-9 h-9;
+      }
+    }
+  }
+}

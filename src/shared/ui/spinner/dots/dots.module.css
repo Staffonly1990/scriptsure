@@ -1,0 +1,36 @@
+.root {
+  @apply flex space-x-2;
+
+  /* if not jit using :global otherwise :local */
+  & :local {
+    @apply animate-bounce;
+  }
+}
+
+.chunk {
+  @apply rounded-full;
+}
+
+@each $color in black, white, gray, red, yellow, green, blue, indigo, purple, pink {
+  .$(color) {
+    @if $color == black OR $color == white {
+      @apply bg-$(color);
+    } @else {
+      &:nth-child(1) {
+        @apply bg-$(color)-200;
+      }
+      &:nth-child(2) {
+        @apply bg-$(color)-400;
+        @nest :global(:root.dark) & {
+          @apply bg-$(color)-300;
+        }
+      }
+      &:nth-child(3) {
+        @apply bg-$(color)-800;
+        @nest :global(:root.dark) & {
+          @apply bg-$(color)-400;
+        }
+      }
+    }
+  }
+}

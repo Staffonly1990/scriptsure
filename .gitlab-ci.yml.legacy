@@ -1,0 +1,48 @@
+stages:
+  - test
+  - build  
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - yarn install
+  - echo "All Packages installed!"
+
+typescheck:
+  stage: test
+  image: node:14.17.6
+  script:
+    - yarn run typecheck
+    - echo "Types check successfully!"
+  
+lint:
+  stage: test
+  image: node:14.17.6
+  script:
+    - yarn run lint
+    - echo "Lint successfully!"
+
+test:
+  stage: test
+  image: node:14.17.6
+  script:
+    - yarn run test:ci
+    - echo "Test successfully!"
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+
+build:
+  stage: build
+  image: node:14.17.6
+  variables:
+    CI: 'false'
+  script:
+    - CI=false  
+    - yarn run build
+    - echo "Build successfully!"
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - build
+      - node_modules/

@@ -1,0 +1,184 @@
+@layer components {
+  @responsive {
+    .form-group {
+      @apply flex flex-col;
+      @apply space-y-1;
+
+      &.__row {
+        @apply flex-row items-center;
+        @apply space-y-0 space-x-2;
+      }
+    }
+  }
+
+  @responsive {
+    .form-control {
+      @apply inline-flex flex-col min-w-0 m-0 p-0 border-0 align-top;
+      @apply space-y-1;
+
+      &.__row {
+        @apply flex-row items-center align-middle;
+        @apply space-y-0 space-x-2;
+      }
+
+      &.__full-width {
+        @apply w-full;
+      }
+    }
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-600 dark:text-gray-400;
+
+    &.__hidden {
+      @apply sr-only;
+    }
+
+    &.__error {
+      @apply text-red-600 dark:text-red-400;
+    }
+
+    &.__blue {
+      @apply text-blue-600 dark:text-blue-300;
+    }
+  }
+
+  .form-input,
+  .form-textarea {
+    @apply appearance-none py-0.5 px-2 text-sm leading-normal sm:text-base sm:leading-normal;
+    @apply border-gray-300 text-gray-500 placeholder-gray-300 rounded shadow-sm;
+
+    &:focus {
+      @apply outline-none border-blue-500 ring-blue-400 dark:border-blue-400 dark:ring-blue-300;
+    }
+
+    &.__underline {
+      @apply border-0 border-b border-gray-300 rounded-none shadow-none;
+      @apply transition duration-500;
+
+      &:focus {
+        @apply ring-0 rounded-none border-blue-500;
+      }
+    }
+
+    &.__error {
+      @apply border-red-300 text-red-500 placeholder-red-300;
+
+      &:focus {
+        @apply border-red-500 ring-red-400 dark:border-red-400 dark:ring-red-300;
+      }
+    }
+
+    &:disabled,
+    &.__disabled {
+      @apply pointer-events-none cursor-default;
+      @apply bg-opacity-50 text-opacity-50 ring-opacity-50 border-opacity-50 placeholder-opacity-50;
+      @apply dark:bg-gray-300;
+    }
+  }
+
+  .form-helper-text {
+    @apply text-sm text-gray-600 dark:text-gray-400;
+
+    &.__error {
+      @apply text-red-600 dark:text-red-400;
+    }
+
+    &.__end {
+      @apply ml-auto text-right;
+    }
+  }
+
+  @responsive {
+    .form-control-label {
+      @apply inline-flex items-center align-middle;
+
+      & .form-control-label_label {
+        @apply text-sm font-medium text-gray-600 dark:text-gray-200;
+      }
+
+      &.__top {
+        @apply flex-col-reverse -mb-2;
+      }
+
+      &.__bottom {
+        @apply flex-col  -mt-2;
+      }
+
+      &.__end {
+        @apply flex-row -ml-2;
+      }
+
+      &.__start {
+        @apply flex-row-reverse -mr-2;
+      }
+
+      &.__disabled {
+        @apply pointer-events-none cursor-default;
+      }
+
+      &.__disabled .form-control-label_label {
+        @apply pointer-events-none cursor-default;
+        @apply text-opacity-50;
+      }
+    }
+  }
+
+  .form-toggle {
+    @apply m-2;
+  }
+
+  .form-checkbox {
+    @apply transition duration-100 ease-in-out rounded h-4 w-4 m-2;
+    @apply border-gray-300 text-blue-600;
+
+    &:checked,
+    &:focus {
+      @apply border-blue-500 ring-blue-400;
+    }
+
+    &.__error {
+      @apply border-red-300 text-red-600;
+
+      &:checked,
+      &:focus {
+        @apply border-red-500 ring-red-400;
+      }
+    }
+
+    &:disabled,
+    &.__disabled {
+      @apply pointer-events-none cursor-default;
+      @apply bg-opacity-50 text-opacity-50 ring-opacity-50 border-opacity-50;
+    }
+  }
+
+  .form-radio {
+    @apply transition duration-100 ease-in-out rounded h-4 w-4 m-2;
+    @apply border-gray-300 text-blue-600;
+
+    &:checked,
+    &:focus {
+      @apply border-blue-500 ring-blue-400;
+    }
+
+    &.__error {
+      @apply border-red-300 text-red-600;
+
+      &:checked,
+      &:focus {
+        @apply border-red-500 ring-red-400;
+      }
+    }
+
+    &:disabled,
+    &.__disabled {
+      @apply pointer-events-none cursor-default;
+      @apply bg-opacity-50 text-opacity-50 ring-opacity-50 border-opacity-50;
+    }
+  }
+
+  .placeholder-search::placeholder {
+    @apply text-base;
+  }
+}

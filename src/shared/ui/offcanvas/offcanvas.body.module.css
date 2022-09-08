@@ -1,0 +1,3 @@
+.root {
+  @apply flex-grow overflow-y-auto px-4 py-2;
+}

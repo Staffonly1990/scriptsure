@@ -1,0 +1,11 @@
+.root {
+  @apply min-w-dropdown divide-y divide-gray-200 focus:outline-none;
+}
+
+.item {
+  @apply flex w-full;
+}
+
+.item-active {
+  @apply -outline-access-offset-1;
+}

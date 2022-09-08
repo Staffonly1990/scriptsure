@@ -1,0 +1,21 @@
+.root {
+  @apply fill-current;
+
+  /* if not jit using :global otherwise :local */
+  & :local {
+    @apply animate-spin;
+  }
+}
+
+@each $color in black, white, gray, red, yellow, green, blue, indigo, purple, pink {
+  .$(color) {
+    @if $color == black OR $color == white {
+      @apply text-$(color);
+    } @else {
+      @apply text-$(color)-800;
+      @nest :global(:root.dark) & {
+        @apply text-$(color)-200;
+      }
+    }
+  }
+}

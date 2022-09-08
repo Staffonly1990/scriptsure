@@ -1,0 +1,7 @@
+.root {
+  @apply flex flex-col text-primary;
+}
+
+.inner {
+  @apply w-full;
+}

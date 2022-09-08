@@ -1,0 +1,154 @@
+.root {
+  @apply shadow-none cursor-pointer focus:outline-none focus-visible:outline-none;
+  @apply inline-flex items-center;
+}
+
+.smooth {
+  @apply rounded-sm;
+}
+
+.round {
+  @apply rounded-md;
+}
+
+.circle {
+  @apply rounded-full;
+}
+
+.square {
+  @apply rounded-none;
+}
+
+@each $variant in filled, outlined, dashed, flat {
+  @each $color in black, white, gray, red, yellow, green, blue, sky, indigo, purple, pink {
+    .$(variant)-$(color) {
+      @if $variant == filled {
+        @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1;
+        @if $color == black {
+          @apply bg-$(color) bg-opacity-75 text-white hover:bg-opacity-95 focus-visible:ring-$(color) focus-visible:ring-offset-gray-200 focus-visible:ring-opacity-95;
+          @nest :global(:root.dark) & {
+            @apply hover:bg-opacity-50 focus-visible:ring-opacity-50 focus-visible:ring-offset-gray-400;
+          }
+        } @else if $color == white {
+          @apply bg-primary text-primary hover:text-opacity-10;
+          & svg {
+            @apply text-current text-opacity-75 hover:text-opacity-10;
+          }
+        } @else {
+          @apply bg-$(color)-500 text-white hover:bg-$(color)-600 focus-visible:ring-$(color)-600 focus-visible:ring-offset-$(color)-100;
+          @nest :global(:root.dark) & {
+            @apply bg-$(color)-400 hover:bg-$(color)-500 focus-visible:ring-$(color)-500 focus-visible:ring-offset-$(color)-200;
+          }
+          & svg {
+            @apply text-current;
+          }
+        }
+      } @else if $variant == flat {
+        @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1;
+        @if $color == black {
+          @apply text-$(color) hover:bg-$(color) hover:bg-opacity-10 focus-visible:ring-$(color) focus-visible:ring-offset-gray-300 focus-visible:ring-opacity-10;
+          @nest :global(:root.dark) & {
+            @apply text-gray-300 hover:bg-opacity-30 hover:text-gray-400 focus-visible:ring-offset-gray-100 focus-visible:ring-opacity-30;
+          }
+          & svg {
+            @apply text-current;
+            @nest :global(:root.dark) & {
+              @apply text-current;
+            }
+          }
+        } @else if $color == white {
+          @apply text-$(color) hover:bg-$(color) hover:bg-opacity-10;
+          @nest :global(:root.dark) & {
+            @apply hover:bg-$(color) hover:bg-opacity-10;
+          }
+          & svg {
+            @apply text-current;
+          }
+        } @else {
+          @apply text-$(color)-600 hover:bg-$(color)-100 focus-visible:ring-$(color)-100 focus-visible:ring-offset-$(color)-300;
+          @nest :global(:root.dark) & {
+            @apply text-$(color)-400 hover:bg-$(color)-100 hover:text-$(color)-700 focus-visible:ring-offset-$(color)-100;
+          }
+          & svg {
+            @apply text-current;
+            @nest :global(:root.dark) & {
+              @apply text-current;
+            }
+          }
+        }
+      } @else if $variant == outlined OR $variant == dashed {
+        @if $variant == outlined {
+          @apply border border-solid;
+        } @else {
+          @apply border border-dashed;
+        }
+        @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-offset-1;
+        @if $color == black {
+          @apply border-$(color) text-$(color) hover:bg-$(color) hover:bg-opacity-10 focus-visible:ring-$(color) focus-visible:ring-offset-gray-400 focus-visible:ring-opacity-95;
+          @nest :global(:root.dark) & {
+            @apply border-gray-400 text-gray-400 hover:bg-gray-300 hover:text-$(color) focus-visible:ring-gray-600 focus-visible:ring-offset-gray-200;
+          }
+          & svg {
+            @apply text-current;
+          }
+        } @else if $color == white {
+          @apply hover:bg-$(color) hover:bg-opacity-10 hover:bg-gray-300;
+          & svg {
+            @apply text-primary;
+          }
+        } @else {
+          @apply border-$(color)-600 text-$(color)-600 hover:bg-$(color)-100 focus-visible:ring-$(color)-600 focus-visible:ring-offset-$(color)-300;
+          @nest :global(:root.dark) & {
+            @apply border-$(color)-400 text-$(color)-300 hover:text-$(color)-600 focus-visible:ring-$(color)-300 focus-visible:ring-offset-$(color)-100;
+          }
+          & svg {
+            @apply text-current;
+            @nest :global(:root.dark) & {
+              @apply text-current;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $size in xs, sm, md, lg, xl {
+  .size-$(size) {
+    @if $size == xs {
+      @apply px-2 py-1 text-xs;
+    } @else if $size == sm {
+      @apply px-3 py-1.5 text-sm leading-4;
+    } @else if $size == md {
+      @apply px-4 py-2 text-sm;
+    } @else if $size == lg {
+      @apply px-5 py-2.5 text-base;
+    } @else if $size == xl {
+      @apply px-6 py-3 text-base;
+    }
+  }
+
+  @each $shape in circle, square {
+    .$(shape)-size-$(size) {
+      @if $size == xs {
+        @apply px-1;
+      } @else if $size == sm {
+        @apply px-1.5;
+      } @else if $size == md {
+        @apply px-2;
+      } @else if $size == lg {
+        @apply px-2.5;
+      } @else if $size == xl {
+        @apply px-3;
+      }
+    }
+  }
+}
+
+.disabled,
+.disabled svg {
+  @apply pointer-events-none cursor-default bg-opacity-60 text-opacity-60 ring-opacity-60 border-opacity-60;
+  @nest :global(:root.dark) & {
+    @apply bg-opacity-40;
+  }
+}

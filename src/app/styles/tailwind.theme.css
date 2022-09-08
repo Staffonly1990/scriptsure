@@ -1,0 +1,46 @@
+/* TODO: rgba(n, n, n, var(--tw-text-opacity)) */
+:root.light {
+  /* #f9fafb */
+  --color-primary-bg-value: 249, 250, 251;
+  /* #fff */
+  --color-secondary-bg-value: 255, 255, 255;
+  /* TODO */
+  --color-lightgray-bg-value: 243, 244, 246;
+
+  /* #374151 */
+  --color-primary-border-value: 55, 65, 81;
+  /*#1c2536 */
+  --color-secondary-border-value: 28, 37, 54;
+  /*  #2b6cb0 */
+  --color-accent-border-value: 43, 108, 176;
+
+  /* #374151 */
+  --color-primary-text-value: 55, 65, 81;
+  /*#1c2536 */
+  --color-secondary-text-value: 28, 37, 54;
+  /*  #2b6cb0 */
+  --color-accent-text-value: 43, 108, 176;
+}
+
+:root.dark {
+  /* #374151 */
+  --color-primary-bg-value: 55, 65, 81;
+  /* #1c2536 */
+  --color-secondary-bg-value: 28, 37, 54;
+  /* TODO */
+  --color-lightgray-bg-value: 55, 65, 81;
+
+  /* #f7fafc */
+  --color-primary-border-value: 247, 250, 252;
+  /* #f9fafb */
+  --color-secondary-border-value: 249, 250, 251;
+  /* #81e6d9 */
+  --color-accent-border-value: 129, 230, 217;
+
+  /* #f7fafc */
+  --color-primary-text-value: 247, 250, 252;
+  /* #f9fafb */
+  --color-secondary-text-value: 249, 250, 251;
+  /* #81e6d9 */
+  --color-accent-text-value: 129, 230, 217;
+}

@@ -1,0 +1,14 @@
+node_modules/**
+dist/**
+build/**
+public/
+.cert
+.husky
+.nginx
+.vscode
+
+# package.json
+# tsconfig.json
+# tsconfig.*.json
+# .eslintrc.js
+# .prettierrc.js

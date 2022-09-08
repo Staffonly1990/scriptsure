@@ -1,0 +1,19 @@
+.note {
+  @apply text-black bg-transparent w-full;
+}
+
+.note:hover {
+  @apply bg-gray-300;
+}
+
+.notes {
+  @apply border-b border-gray-300 w-full;
+}
+
+.addendum {
+  @apply text-black bg-transparent w-full;
+}
+
+.addendum:hover {
+  @apply bg-gray-300;
+}
